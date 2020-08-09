@@ -1,0 +1,32 @@
+{
+  "name": "ts-cli-template",
+  "version": "0.1.0",
+  "description": "typescript CLI template",
+  "bin": {
+    "sample-cli": "./bin/exec"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "type:check": "npx tsc -p . --noEmit",
+    "build": "npx tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "typescirpt",
+    "node",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/inquirer": "^7.3.0",
+    "@types/node": "^14.0.27",
+    "ts-node": "^8.10.2",
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "inquirer": "^7.3.3",
+    "ora": "^5.0.0"
+  }
+}
