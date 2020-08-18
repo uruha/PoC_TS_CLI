@@ -1,3 +1,4 @@
+import shell from 'shelljs';
 import chalk from 'chalk';
 import ora from 'ora';
 import inquirer from 'inquirer';
@@ -13,6 +14,8 @@ const msg = `
 Hello ! ${inputName} :)
 `;
 
+shell.echo('Start !');
+shell.mkdir('./tmp');
 console.log(chalk.redBright(msg));
 
 inquirer
@@ -39,5 +42,7 @@ inquirer
             spinner.text = 'Now Settings';
 
             spinner.succeed(projectType.toString());
+
+            shell.rm('-rf', './tmp');
         }, 1500);
     });
