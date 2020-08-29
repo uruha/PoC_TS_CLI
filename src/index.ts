@@ -6,8 +6,8 @@ import inquirer from 'inquirer';
 const [, , inputName] = process.argv;
 
 if (!inputName) {
-    console.error('Please pass one your name.');
-    process.exit(1);
+  console.error('Please pass one your name.');
+  process.exit(1);
 }
 
 const msg = `
@@ -19,30 +19,30 @@ shell.mkdir('./tmp');
 console.log(chalk.redBright(msg));
 
 inquirer
-    .prompt([
-        {
-            type: 'checkbox',
-            name: 'projectType',
-            message: 'Select your project type',
-            choices: [
-                'Hole',
-                'Web Server',
-                'Docker container',
-                'Scaffold',
-                'Use redux',
-                'Authentication',
-            ],
-        },
-    ])
-    .then(({ projectType }: { projectType: string[] }) => {
-        const spinner = ora('Customize start your project').start();
+  .prompt([
+    {
+      type: 'checkbox',
+      name: 'projectType',
+      message: 'Select your project type',
+      choices: [
+        'Hole',
+        'Web Server',
+        'Docker container',
+        'Scaffold',
+        'Use redux',
+        'Authentication'
+      ]
+    }
+  ])
+  .then(({ projectType }: { projectType: string[] }) => {
+    const spinner = ora('Customize start your project').start();
 
-        setTimeout(() => {
-            spinner.color = 'yellow';
-            spinner.text = 'Now Settings';
+    setTimeout(() => {
+      spinner.color = 'yellow';
+      spinner.text = 'Now Settings';
 
-            spinner.succeed(projectType.toString());
+      spinner.succeed(projectType.toString());
 
-            shell.rm('-rf', './tmp');
-        }, 1500);
-    });
+      shell.rm('-rf', './tmp');
+    }, 1500);
+  });
